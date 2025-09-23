@@ -1,1 +1,2 @@
 # MissionDemolition
+example remake of Chapter 30 from [Introduction to Game Design, Prototyping, and Developmentby Jeremy Gibson Bond](https://learning.oreilly.com/library/view/introduction-to-game/9780136619918/ch30.xhtml#ch30lev1sec6)
