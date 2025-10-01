@@ -15,6 +15,7 @@ public class Slingshot : MonoBehaviour
     public Vector3      launchPos;
     public GameObject   projectile;
     public bool         aimingMode;
+    public GameObject   projLinePrefab;
     
     
     void Awake()
@@ -70,6 +71,7 @@ public class Slingshot : MonoBehaviour
             projRB.isKinematic = false;
             projRB.velocity = -mouseDelta * velocityMult;
             FollowCamera.POI = projectile;
+            Instantiate<GameObject>(projLinePrefab, projectile.transform);
             projectile = null;
         }
     }
