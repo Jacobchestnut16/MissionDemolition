@@ -6,20 +6,24 @@ using UnityEngine;
 public class Slingshot : MonoBehaviour
 {
     [Header("Inscribed")]
-    public GameObject projectilePrefab;
-
+    [SerializeField]
+    private GameObject projectilePrefab;
     public float velocityMult = 10f;
+    public GameObject   projLinePrefab;
     
     [Header("Dynamic")]
     public GameObject   launchPoint;
     public Vector3      launchPos;
     public GameObject   projectile;
     public bool         aimingMode;
-    public GameObject   projLinePrefab;
+
     
     
     void Awake()
     {
+        if (projectilePrefab == null) {
+            projectilePrefab = Resources.Load<GameObject>("ProjectilePrefab"); // put prefab in Resources/
+        }
         Transform launchPointTransform = transform.Find("LaunchPoint");
         launchPoint = launchPointTransform.gameObject;
         launchPoint.SetActive(false);
@@ -39,10 +43,15 @@ public class Slingshot : MonoBehaviour
 
     void OnMouseDown()
     {
+
         aimingMode = true;
+
         projectile = Instantiate(projectilePrefab) as GameObject;
+
         projectile.transform.position = launchPos;
+
         projectile.GetComponent<Rigidbody>().isKinematic = true;
+
     }
 
     private void Update()
