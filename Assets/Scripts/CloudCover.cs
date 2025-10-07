@@ -27,6 +27,7 @@ public class CloudCover : MonoBehaviour
              
             int spriteNum = Random.Range( 0, cloudSprites.Length );           // e
             sRend.sprite = cloudSprites[spriteNum];
+            
  
             cloudTrans.position = RandomPos();                                // f
             cloudTrans.SetParent( parentTrans, true );
